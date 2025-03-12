@@ -38,6 +38,12 @@ public class Plataform : MonoBehaviour
 
             // Calcula a dire��o do impulso com base no ponto de colis�o
             float hitFactor = (contactPoint.x - platformCenter.x) / (GetComponent<Collider2D>().bounds.size.x / 2);
+            Rigidbody2D ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (ballRb != null)
+            {
+                Vector2 bounceDirection = new Vector2(hitFactor, 1). normalized;
+                ballRb.velocity = bounceDirection * bounceForce;
+            }
         }
     }
 }
