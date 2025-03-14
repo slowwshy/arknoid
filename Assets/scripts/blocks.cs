@@ -10,7 +10,7 @@ public class blocks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Pontos.text = "Pontos : 0";
+        Pontos = GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame

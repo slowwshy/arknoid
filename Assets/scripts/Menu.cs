@@ -5,17 +5,12 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-  public void Renascer()
-   {
-       SceneManager.LoadScene(0); 
-   }
-
-    public void Start()
+    public void começar()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
-    public void Quit()
+    public void Sair()
     {
-        Application.Quit();
+       Application.Quit();
     }
 }
