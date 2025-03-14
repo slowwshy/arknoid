@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.UIElements;
+using TMPro;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField]private int points = 0;
+    public TMP_Text Pontos;
+    private AudioSource Click;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Click = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,16 @@ public class Ball : MonoBehaviour
         if(collision.gameObject.CompareTag("block"))
         {
             Destroy(collision.gameObject);
+            Click.Play();
+            
+            points++;
+            Pontos.text = "Pontos : " + points;
+            
+
+        }
+        if(points >= 79)
+        {
+            SceneManager.LoadScene("Vitória");
         }
         if(collision.gameObject.CompareTag("Death"))
         {
@@ -32,5 +44,6 @@ public class Ball : MonoBehaviour
 
         }
     }
+    
 
 }
